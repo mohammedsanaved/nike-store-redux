@@ -2,6 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import Clips from '../utils/Clips';
+import SocialLink from '../utils/SocialLink';
 // import Clips from './utils/Clips';
 // import SocialLink from './utils/SocialLink';
 
@@ -34,10 +35,7 @@ const Hero = ({
             </div>
             <div className='grid items-center absolute top-[33vh] lg:top-[27vh] right-0 gap-3'>
               {/* {sociallinks?.map((val, i) => (
-                <SocialLink
-                  key={i}
-                  icon={val.icon}
-                />
+                <SocialLink key={i} icon={val.icon} />
               ))} */}
             </div>
           </div>
@@ -45,7 +43,7 @@ const Hero = ({
             <img
               src={img}
               alt='hero-img/img'
-              className='w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[25deg] hover:rotate-0 cursor-pointer object-fill'
+              className='w-auto h-[45vh] lg:h-[35vh] md:h-[31vh] sm:h-[21vh] xsm:h-[19vh] transitions-theme -rotate-[0deg] hover:rotate-[-25deg] cursor-pointer object-fill'
             />
           </div>
         </div>
