@@ -4,19 +4,30 @@ import {
   HeartIcon,
   MagnifyingGlassIcon,
   ShoppingBagIcon,
-} from '@heroicons/react/24/outline';
+} from '@heroicons/react/24/solid';
 import logo from '../assets/logo.png';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BsFillPersonFill } from 'react-icons/bs';
+import { cartTotalQuantity, setOpenCart } from '../app/CartSlice.js';
 
 const Navbar = () => {
   const [navState, setNavState] = useState(false);
+  const dispatch = useDispatch();
+  const totalQTY = useSelector(cartTotalQuantity);
   const onNavScroll = () => {
     if (window.scrollY > 30) {
       setNavState(true);
     } else {
       setNavState(false);
     }
+  };
+  const onCartToggle = () => {
+    dispatch(
+      setOpenCart({
+        cartState: true,
+      })
+    );
   };
   useEffect(() => {
     window.addEventListener('scroll', onNavScroll);
@@ -62,7 +73,7 @@ const Navbar = () => {
             <li className='grid items-center'>
               <button
                 type='button'
-                // onClick={onCartToggle}
+                onClick={onCartToggle}
                 className='border-none outline-none active:scale-110 transition-all duration-300 relative'
               >
                 <ShoppingBagIcon
@@ -75,10 +86,9 @@ const Navbar = () => {
                     navState
                       ? 'bg-slate-900 text-slate-100 shadow-slate-900'
                       : 'bg-slate-100 text-slate-900 shadow-slate-100'
-                  }
-                  `}
+                  }`}
                 >
-                  0
+                  {totalQTY}
                 </div>
               </button>
             </li>

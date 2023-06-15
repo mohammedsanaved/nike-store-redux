@@ -2,6 +2,8 @@
 /* eslint-disable no-unused-vars */
 import { ShoppingBagIcon, StarIcon } from '@heroicons/react/24/solid';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setAddItemToCart, setCloseCart } from '../app/CartSlice';
 
 const Item = ({
   ifExists,
@@ -15,6 +17,19 @@ const Item = ({
   rating,
   price,
 }) => {
+  const dispatch = useDispatch();
+  const onAddToCart = () => {
+    const item = { id, title, text, img, price };
+    dispatch(setAddItemToCart(item));
+    console.log(setAddItemToCart(item));
+  };
+  // const onCartToggle = () => {
+  //   dispatch(
+  //     setCloseCart({
+  //       cartState: false,
+  //     })
+  //   );
+  // };
   return (
     <>
       <div
@@ -44,12 +59,14 @@ const Item = ({
             <button
               type='button'
               className='bg-white blur-effect-theme button-theme p-1 shadow-dark-200'
+              onClick={() => onAddToCart()}
             >
               <ShoppingBagIcon className='icon-style text-slate-900 ' />
             </button>
             <button
               type='button'
               className='bg-white blur-effect-theme button-theme p-1 shadow-dark-200 text-sm text-black px-2 font-medium'
+              onClick={() => onAddToCart()}
             >
               {btn}
             </button>

@@ -11,7 +11,7 @@ const CartEmpty = ({ onCartToggle }) => {
         <img
           src={emptybag}
           alt='emptybag/img'
-          className='w-40 lg:w-36 sm:w-28 h-auto object-fill transition-all duration-500 hover:scale-110 hover:-rotate-180'
+          className='w-40 lg:w-36 sm:w-28 h-auto object-fill transition-all duration-300 hover:scale-110 hover:-rotate-180'
         />
         <button
           type='button'
