@@ -1,9 +1,17 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { ShoppingBagIcon, StarIcon } from '@heroicons/react/24/solid';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { StarIcon, ShoppingBagIcon } from '@heroicons/react/24/solid';
+// import { HeartIcon } from '@heroicons/react/24/outline';
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { setAddItemToCart, setCloseCart } from '../app/CartSlice';
+import {
+  setAddItemToWishCart,
+  setRemoveItemFromWishCart,
+  selectWishCartItems,
+} from '../app/WishListCartSlice';
+import { toast } from 'react-hot-toast';
 
 const Item = ({
   ifExists,
@@ -17,19 +25,35 @@ const Item = ({
   rating,
   price,
 }) => {
+  const [isClicked, setIsClicked] = useState(false);
   const dispatch = useDispatch();
+  const wishCartItems = useSelector(selectWishCartItems);
+
   const onAddToCart = () => {
     const item = { id, title, text, img, price };
     dispatch(setAddItemToCart(item));
-    console.log(setAddItemToCart(item));
   };
-  // const onCartToggle = () => {
-  //   dispatch(
-  //     setCloseCart({
-  //       cartState: false,
-  //     })
-  //   );
+  const onRemoveItemFromWishList = () => {
+    const itemIndex = wishCartItems.findIndex((item) => item.id === id);
+    if (itemIndex >= 0) {
+      dispatch(setRemoveItemFromWishCart({ id, title, text, img, price }));
+      toast.success(`${title} Removed from Wishcart`);
+    }
+  };
+  // const onRemoveitem = () => {
+  //   dispatch(setRemoveItemFromWishCart({ id, title, text, img, price }));
   // };
+  const onAddToWishList = () => {
+    setIsClicked(!isClicked);
+    const wishitem = { id, title, text, img };
+    dispatch(setAddItemToWishCart(wishitem));
+    if (isClicked) {
+      toast.success(`${title} added to Wishcart`);
+    } else {
+      toast.success(`${title} removed from Wishcart`);
+    }
+  };
+
   return (
     <>
       <div
@@ -56,19 +80,49 @@ const Item = ({
             </div>
           </div>
           <div className='flex items-center gap-3'>
+            {/* <button
+              type='button'
+              // onClick={() => onRemoveitem()}
+              // onClick={() => onAddToWishList()}
+              // className={`blur-effect-theme button-theme p-1 shadow-dark-200 ${
+              //   isClicked ? `` : ''
+              // }`}
+              className={'blur-effect-theme button-theme p-0.5'}
+            >
+              {isClicked ? (
+                <span onClick={() => onAddToWishList()}>
+                  <FaHeart className='icon-style bg-red-500' />
+                </span>
+              ) : (
+                <span>
+                  <FaRegHeart className='icon-style bg-slate-700' />
+                </span>
+              )}
+            </button> */}
             <button
               type='button'
-              className='bg-white blur-effect-theme button-theme p-1 shadow-dark-200'
-              onClick={() => onAddToCart()}
+              className='button-theme p-0.5'
+              onClick={onAddToWishList}
             >
-              <ShoppingBagIcon className='icon-style text-slate-900 ' />
+              {isClicked ? (
+                <span>
+                  <FaHeart className='icon-style text-red-500' />
+                </span>
+              ) : (
+                <span>
+                  <FaRegHeart className='icon-style text-white' />
+                </span>
+              )}
             </button>
             <button
               type='button'
-              className='bg-white blur-effect-theme button-theme p-1 shadow-dark-200 text-sm text-black px-2 font-medium'
+              className='bg-white blur-effect-theme button-theme p-1 shadow-dark-200 text-sm text-black px-2 font-medium flex'
               onClick={() => onAddToCart()}
             >
-              {btn}
+              <span>
+                <ShoppingBagIcon className='h-6 w-6 p-0.5 flex' />
+              </span>
+              <span className='h-6'>{btn}</span>
             </button>
           </div>
         </div>
@@ -91,5 +145,4 @@ const Item = ({
     </>
   );
 };
-
 export default Item;

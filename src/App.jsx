@@ -7,16 +7,18 @@ import {
   popularsales,
   topratesales,
   sneaker,
-} from './data/data';
+} from './data/data.js';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart';
+import WishList from './components/WishList';
 
 function App() {
   return (
     <>
       <Navbar />
       <Cart />
+      <WishList />
       <main className='flex flex-col gap-16'>
         <Hero heroapi={heroapi} />
         <Sales endpoint={popularsales} ifExists />

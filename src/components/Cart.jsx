@@ -19,7 +19,7 @@ const Cart = () => {
   const cartItems = useSelector(selectCartItems);
   const totalAmount = useSelector(selectTotalAmount);
 
-  // console.log(cartItems)
+  // console.log(cartItems);
 
   useEffect(() => {
     dispatch(setGetTotals());
