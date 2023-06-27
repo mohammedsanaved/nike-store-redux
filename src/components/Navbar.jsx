@@ -5,6 +5,13 @@ import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
 } from '@heroicons/react/24/solid';
+import {
+  heroapi,
+  highlight,
+  popularsales,
+  topratesales,
+  sneaker,
+} from '../data/data';
 import logo from '../assets/logo.png';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -69,6 +76,9 @@ const Navbar = () => {
               className={`w-16 h-auto ${navState && 'filter brightness-0'}`}
             />
           </div>
+          {/* <div className='p-1 rounded-xl w-[60%] z-30 bg-white'>
+            <SearchFeild product={topratesales} />
+          </div> */}
           {/* <input
             type='text'
             value={search}
@@ -78,7 +88,8 @@ const Navbar = () => {
               'p-1 rounded-xl opacity-60 focus: border-none w-[60%] transition-all ease-in-out'
             }
           ></input> */}
-          <SearchFeild />
+          {/* <SearchFeild /> */}
+
           <ul className='flex items-center justify-center gap-2'>
             <li className='grid items-center'>
               <button>
