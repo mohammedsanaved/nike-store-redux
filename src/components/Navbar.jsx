@@ -68,7 +68,7 @@ const Navbar = () => {
             : 'fixed top-0 left-0 right-0 h-[12vh] flex items-center justify-center opacity-100 z-[200] blur-effect-theme'
         }
       >
-        <nav className='flex items-center justify-between nike-container'>
+        <nav className='relative flex items-center justify-between nike-container'>
           <div className='flex items-center'>
             <img
               src={logo}
@@ -76,20 +76,9 @@ const Navbar = () => {
               className={`w-16 h-auto ${navState && 'filter brightness-0'}`}
             />
           </div>
-          {/* <div className='p-1 rounded-xl w-[60%] z-30 bg-white'>
+          <div className='absolute p-0.5 z-30 top-[-120%] w-[60%] left-[20%] sm:left-[30%]'>
             <SearchFeild product={topratesales} />
-          </div> */}
-          {/* <input
-            type='text'
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder='search product here'
-            className={
-              'p-1 rounded-xl opacity-60 focus: border-none w-[60%] transition-all ease-in-out'
-            }
-          ></input> */}
-          {/* <SearchFeild /> */}
-
+          </div>
           <ul className='flex items-center justify-center gap-2'>
             <li className='grid items-center'>
               <button>

@@ -12,13 +12,13 @@ import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Cart from './components/Cart';
 import WishList from './components/WishList';
-import SearchFeild from './components/SearchFeild';
+// import SearchFeild from './components/SearchFeild';
 
 function App() {
   return (
     <>
       <Navbar />
-      <SearchFeild product={topratesales} />
+      {/* <SearchFeild product={topratesales} /> */}
       <Cart />
       <WishList />
       <main className='flex flex-col gap-16'>
