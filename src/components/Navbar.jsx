@@ -80,7 +80,7 @@ const Navbar = () => {
             <SearchFeild product={topratesales} />
           </div>
           <ul className='flex items-center justify-center gap-2'>
-            <li className='grid items-center'>
+            {/* <li className='grid items-center'>
               <button>
                 <MagnifyingGlassIcon
                   className={`icon-style ${
@@ -89,7 +89,7 @@ const Navbar = () => {
                 }`}
                 />
               </button>
-            </li>
+            </li> */}
             <li className='grid items-center'>
               <button
                 onClick={() => onWishCartToggle()}
@@ -133,7 +133,7 @@ const Navbar = () => {
                 </div>
               </button>
             </li>
-            <Link to='/register'>
+            {/* <Link to='/register'>
               <div>
                 <BsFillPersonFill
                   className={`icon-style ${
@@ -141,7 +141,7 @@ const Navbar = () => {
                   }`}
                 />
               </div>
-            </Link>
+            </Link> */}
           </ul>
         </nav>
       </header>

@@ -26,7 +26,7 @@ const WishListCartSlice = createSlice({
       );
       state.wishcartItems = removeItem;
       localStorage.setItem('wishList', JSON.stringify(state.wishcartItems));
-      toast.success(`${action.payload.title} Removed Cart `);
+      toast.success(`${action.payload.title} Removed WishCart `);
     },
     setClearWishCartItems: (state, action) => {
       state.wishcartItems = [];

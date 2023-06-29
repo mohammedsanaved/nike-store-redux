@@ -33,13 +33,13 @@ const Item = ({
     const item = { id, title, text, img, price };
     dispatch(setAddItemToCart(item));
   };
-  const onRemoveItemFromWishList = () => {
-    const itemIndex = wishCartItems.findIndex((item) => item.id === id);
-    if (itemIndex >= 0) {
-      dispatch(setRemoveItemFromWishCart({ id, title, text, img, price }));
-      toast.success(`${title} Removed from Wishcart`);
-    }
-  };
+  // const onRemoveItemFromWishList = () => {
+  //   const itemIndex = wishCartItems.findIndex((item) => item.id === id);
+  //   if (itemIndex >= 0) {
+  //     dispatch(setRemoveItemFromWishCart({ id, title, text, img, price }));
+  //     toast.success(`${title} Removed from Wishcart`);
+  //   }
+  // };
   // const onRemoveitem = () => {
   //   dispatch(setRemoveItemFromWishCart({ id, title, text, img, price }));
   // };
@@ -49,8 +49,6 @@ const Item = ({
     dispatch(setAddItemToWishCart(wishitem));
     if (isClicked) {
       toast.success(`${title} added to Wishcart`);
-    } else {
-      toast.success(`${title} removed from Wishcart`);
     }
   };
 
