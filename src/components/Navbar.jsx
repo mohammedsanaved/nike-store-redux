@@ -17,7 +17,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsFillPersonFill } from 'react-icons/bs';
 import { cartTotalQuantity, setOpenCart } from '../app/CartSlice.js';
-import { Link } from 'react-router-dom';
 import {
   setOpenWishList,
   wishCartTotalQuantity,
@@ -80,7 +79,7 @@ const Navbar = () => {
             <SearchFeild product={topratesales} />
           </div>
           <ul className='flex items-center justify-center gap-2'>
-            {/* <li className='grid items-center'>
+            <li className='grid items-center'>
               <button>
                 <MagnifyingGlassIcon
                   className={`icon-style ${
@@ -89,7 +88,7 @@ const Navbar = () => {
                 }`}
                 />
               </button>
-            </li> */}
+            </li>
             <li className='grid items-center'>
               <button
                 onClick={() => onWishCartToggle()}
@@ -133,15 +132,13 @@ const Navbar = () => {
                 </div>
               </button>
             </li>
-            {/* <Link to='/register'>
-              <div>
-                <BsFillPersonFill
-                  className={`icon-style ${
-                    navState && 'text-slate-900 transition-all duration-300'
-                  }`}
-                />
-              </div>
-            </Link> */}
+            <div>
+              <BsFillPersonFill
+                className={`icon-style ${
+                  navState && 'text-slate-900 transition-all duration-300'
+                }`}
+              />
+            </div>
           </ul>
         </nav>
       </header>
